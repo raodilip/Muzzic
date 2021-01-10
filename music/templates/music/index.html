@@ -1,0 +1,32 @@
+{% extends 'music/base.html' %}
+{% block body %}
+{% if object_list %}
+<div class="container" >
+    <div class="row" >
+        {% for album in object_list %}
+        <div class="col" style="margin-top: 1rem;">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ album.album_logo.url }}"   alt="{{album.album_title}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{album.album_title}}</h5>
+                    <p class="card-text">
+                        {{ album.artist }} - {{ album.genre }}
+                    </p>
+                    <a href="{% url 'music:detail' album.id %}" class="btn btn-info">Details</a>
+                    <a href="{% url 'music:album-update' album.id %}" class="btn btn-info">Update</a>
+                    <!-- <form action="{% url 'music:album-delete' album.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        
+                    <button href="" class="btn btn-primary">Delete</button>
+                    </form> -->
+                    
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<h3>You dont have anything</h3>
+{% endif %}
+{% endblock %}

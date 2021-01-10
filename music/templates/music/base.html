@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Muzic</title>
+        {% load static %}
+        <link rel="stylesheet" type = "text/css" href="{% static '/music/style.css' %}" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Satisfy">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="{% url 'music:index' %}">Muzzic</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'music:index' %}"><span class="glyphicon glyphicon-cd"></span>Albums</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'music:songList' %}">Songs</a>
+                </li>
+                
+                
+              </ul>
+              <!-- <form class="form-inline ">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success " type="submit">Search</button>
+              </form> -->
+              <ul class="navbar-nav ">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'music:album-add' %}"><span class="glyphicon glyphicon-cd"></span>Add Album</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'music:song-add' %}"><span class="glyphicon glyphicon-cd"></span>Add Song</a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" href="{% url 'music:index' %}">Log out</a>
+                  </li> -->
+                  
+                  
+                </ul>
+            </div>
+</nav>
+{% block body %}
+{% endblock %}
+
+    </body>
+</html>
